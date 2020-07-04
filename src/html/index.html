@@ -5,9 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=2b9541f7-ccfd-4a4d-8d04-882c3a5087a4&lang=ru_RU"
+        type="text/javascript"></script>
 </head>
 
 <body>
+
+    <header class="header">
+        <div class="buttons-panel">
+            <button class="refresh">Refresh</button>
+            <button class="en">en</button>
+            <button class="ru">ru</button>
+            <button class="be">be</button>
+            <button class="be">F</button>
+            <button class="be">C</button>
+        </div>
+        <form class="search-form">
+            <input type="text" class="input" placeholder="Enter movie name">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+
+    <div class="main">
+        <div class="weather">
+
+        </div>
+        <div class="map" id="map"></div>
+    </div>
 
 </body>
 
