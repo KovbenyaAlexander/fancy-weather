@@ -1,21 +1,23 @@
-export default function yandexMapInit(pos) {
-    const crd = pos.coords;
-    // Функция ymaps.ready() будет вызвана, когда
-    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
-    ymaps.ready(init);
-    function init() {
-        // Создание карты.
-        var myMap = new ymaps.Map("map", {
-            // Координаты центра карты.
-            // Порядок по умолчанию: «широта, долгота».
-            // Чтобы не определять координаты центра карты вручную,
-            // воспользуйтесь инструментом Определение координат.
-            center: [crd.latitude, crd.longitude],
-            // Уровень масштабирования. Допустимые значения:
-            // от 0 (весь мир) до 19.
-            zoom: 10
-        });
+export default function yandexMapInit(pos, lat, lng) {
+    if (pos) {
+        const crd = pos.coords;
+        ymaps.ready(init);
+        function init() {
+            var myMap = new ymaps.Map("map", {
+                center: [crd.latitude, crd.longitude],
+                zoom: 10
+            });
+        }
+    } else {
+        ymaps.ready(init);
+        function init() {
+            var myMap = new ymaps.Map("map", {
+                center: [lat, lng],
+                zoom: 10
+            });
+        }
     }
+
 }
 
 
