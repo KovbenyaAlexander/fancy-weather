@@ -4,16 +4,14 @@ import weatherDrawing from './weatherDrawing';
 
 
 navigator.geolocation.getCurrentPosition((coords) => {
-    yandexMapInit(coords);
+    yandexMapInit(coords.coords.latitude, coords.coords.longitude);
     const currentUserLocation = reverseGeocoding(coords);
     currentUserLocation.then(data => {
-        const city = data.results[0].components.city || data.results[0].components.town ||
-            data.results[0].components.village || data.results[0].components.county || data.results[0].components.state;
-
-        weatherDrawing(city);
+        console.log(data);
+        const city = data.results[0].components.city || data.results[0].components.town || data.results[0].components.village || data.results[0].components.county || data.results[0].components.state;
+        weatherDrawing(city, coords.coords.latitude, coords.coords.longitude);
     })
 });
-
 
 
 
@@ -25,18 +23,13 @@ searchForm.addEventListener("submit", (e) => {
         if (data) {
             const lat = data.results[0].geometry.lat;
             const lng = data.results[0].geometry.lng;
-            const mapElement = document.querySelector(`.map`);
-            mapElement.innerHTML = ``;
-            yandexMapInit(null, lat, lng);
 
-
+            yandexMapInit(lat, lng);
 
             const currentUserLocation = reverseGeocoding(null, lat, lng);
             currentUserLocation.then(data => {
-                const city = data.results[0].components.city || data.results[0].components.town ||
-                    data.results[0].components.village || data.results[0].components.county || data.results[0].components.state;
-
-                weatherDrawing(city);
+                const city = data.results[0].components.city || data.results[0].components.town || data.results[0].components.village || data.results[0].components.county || data.results[0].components.state;
+                weatherDrawing(city, lat, lng);
             })
         }
 

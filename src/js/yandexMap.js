@@ -1,26 +1,16 @@
-export default function yandexMapInit(pos, lat, lng) {
-    if (pos) {
-        const crd = pos.coords;
-        ymaps.ready(init);
-        function init() {
-            var myMap = new ymaps.Map("map", {
-                center: [crd.latitude, crd.longitude],
-                zoom: 10
-            });
-        }
+export default function yandexMapInit(lat, lng) {
 
-    } else {
-        ymaps.ready(init);
-        function init() {
-            var myMap = new ymaps.Map("map", {
-                center: [lat, lng],
-                zoom: 10
-            });
-        }
+    const mapElement = document.querySelector(`.map`);
+    mapElement.innerHTML = ``;
 
+
+    ymaps.ready(init);
+    function init() {
+        var myMap = new ymaps.Map("map", {
+            center: [lat, lng],
+            zoom: 10
+        });
     }
-
-
 }
 
 

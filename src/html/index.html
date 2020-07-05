@@ -21,15 +21,60 @@
             <button class="be">C</button>
         </div>
         <form class="search-form">
-            <input type="text" class="input">
+            <input type="text" class="search-form__input">
             <button type="submit">Search</button>
         </form>
     </header>
 
     <div class="main">
         <div class="weather">
-
+            <div class="weather__today">
+                <div class="weather__location">
+                    <div class="weather__town"></div>
+                    <div class="weather__country"></div>
+                </div>
+                <div class="weather__time"></div>
+                <div class="weather__curent-condition">
+                    <div class="weather__ico"></div>
+                    <div class="weather__current-text"></div>
+                </div>
+                <div class="weather__temperature">
+                    <div class="degree-value"></div>
+                    <span class="degree-symbol"></span>
+                </div>
+                <div class="weather_additional-info">
+                    <p class="wind-speed"></p>
+                    <p class="humidity"></p>
+                </div>
+            </div>
+            <div class="weather__next-days">
+                <div class="weather__add-days weather__today ">
+                    <div class="weather-date"></div>
+                    <div class="weather__weather-in-this-day">
+                        <div class="weather-condition-in-this-day"></div>
+                        <div class="weather-condition-ico-in-this-day"></div>
+                    </div>
+                    <div class="temperature_in_this_day"></div>
+                </div>
+                <div class="weather__add-days weather__tomorrow">
+                    <div class="weather-date"></div>
+                    <div class="weather__weather-in-this-day">
+                        <div class="weather-condition-in-this-day"></div>
+                        <div class="weather-condition-ico-in-this-day"></div>
+                    </div>
+                    <div class="temperature_in_this_day"></div>
+                </div>
+                <div class="weather__add-days weather__the-day-after-tomorrow">
+                    <div class="weather-date"></div>
+                    <div class="weather__weather-in-this-day">
+                        <div class="weather-condition-in-this-day"></div>
+                        <div class="weather-condition-ico-in-this-day"></div>
+                    </div>
+                    <div class="temperature_in_this_day"></div>
+                </div>
+            </div>
         </div>
+
         <div class="map" id="map"></div>
     </div>
 
