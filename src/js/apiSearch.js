@@ -5,7 +5,6 @@ export async function getCoordinatsByCityName(event) {
     if (event) {
         event.preventDefault();
     }
-
     const city = document.querySelector(`.search-form__input`).value;
     const url = `https://api.opencagedata.com/geocode/v1/json?q=${city}&key=99ecf60eb3944fd69770b5c974614a6a`;
     const res = await fetch(url);
@@ -14,7 +13,6 @@ export async function getCoordinatsByCityName(event) {
     if (data.results.length === 0) {
         alert(`results not found`);
     } else {
-
         return data;
     }
 
@@ -36,27 +34,20 @@ export async function reverseGeocoding(pos, lat, lng) {
 }
 
 export async function getWeatherInfo(lat, lng, language) {
-    //const url = `https://api.weatherapi.com/v1/forecast.json?key=0faa504995bd4273abe171804200407&q=${city}&days=3`;
     if (!language) {
         language = `en`;
     } else {
         lat = getFromStorage(`lat`);
         lng = getFromStorage(`lng`);
-        console.log(lat);
-
         const url = `https://api.weatherapi.com/v1/forecast.json?key=0faa504995bd4273abe171804200407&lang=${language}&q=${lat},${lng}&days=3`;
         const res = await fetch(url);
         const data = await res.json();
-
         weatherDrawing(null, null, null, data);
     }
-
 
     const url = `https://api.weatherapi.com/v1/forecast.json?key=0faa504995bd4273abe171804200407&lang=${language}&q=${lat},${lng}&days=3`;
     const res = await fetch(url);
     const data = await res.json();
-
-
     return data;
 }
 

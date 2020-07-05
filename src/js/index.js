@@ -57,3 +57,8 @@ const switchLanguageToRu = document.querySelector(`.button-ru`);
 switchLanguageToRu.addEventListener(`click`, () => {
     getWeatherInfo(null, null, `ru`);
 })
+
+const switchLanguageToUk = document.querySelector(`.button-uk`);
+switchLanguageToUk.addEventListener(`click`, () => {
+    getWeatherInfo(null, null, `uk`);
+})
