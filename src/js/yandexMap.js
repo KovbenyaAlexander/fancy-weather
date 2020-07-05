@@ -8,6 +8,7 @@ export default function yandexMapInit(pos, lat, lng) {
                 zoom: 10
             });
         }
+
     } else {
         ymaps.ready(init);
         function init() {
@@ -16,7 +17,9 @@ export default function yandexMapInit(pos, lat, lng) {
                 zoom: 10
             });
         }
+
     }
+
 
 }
 
