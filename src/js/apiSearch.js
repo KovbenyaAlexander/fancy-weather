@@ -1,3 +1,6 @@
+import { getFromStorage, setToStorage } from './storage'
+import weatherDrawing from './weatherDrawing';
+
 export async function getCoordinatsByCityName(event) {
     if (event) {
         event.preventDefault();
@@ -32,11 +35,28 @@ export async function reverseGeocoding(pos, lat, lng) {
     }
 }
 
-export async function getWeatherInfo(lat, lng) {
+export async function getWeatherInfo(lat, lng, language) {
     //const url = `https://api.weatherapi.com/v1/forecast.json?key=0faa504995bd4273abe171804200407&q=${city}&days=3`;
-    const url = `https://api.weatherapi.com/v1/forecast.json?key=0faa504995bd4273abe171804200407&lang=en&q=${lat},${lng}&days=5`;
+    if (!language) {
+        language = `en`;
+    } else {
+        lat = getFromStorage(`lat`);
+        lng = getFromStorage(`lng`);
+        console.log(lat);
+
+        const url = `https://api.weatherapi.com/v1/forecast.json?key=0faa504995bd4273abe171804200407&lang=${language}&q=${lat},${lng}&days=3`;
+        const res = await fetch(url);
+        const data = await res.json();
+
+        weatherDrawing(null, null, null, data);
+    }
+
+
+    const url = `https://api.weatherapi.com/v1/forecast.json?key=0faa504995bd4273abe171804200407&lang=${language}&q=${lat},${lng}&days=3`;
     const res = await fetch(url);
     const data = await res.json();
+
+
     return data;
 }
 
