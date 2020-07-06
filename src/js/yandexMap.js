@@ -1,4 +1,11 @@
-export default function yandexMapInit(lat, lng) {
+import { getFromStorage, setToStorage } from './storage'
+
+
+export default function yandexMapInit() {
+
+    const lat = getFromStorage(`lat`);
+    const lng = getFromStorage(`lng`);
+
 
     const mapElement = document.querySelector(`.map`);
     mapElement.innerHTML = ``;

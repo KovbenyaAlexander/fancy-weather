@@ -6,10 +6,13 @@ import { getWeatherInfo } from './apiSearch'
 import { switchTemperature, translate } from './translate'
 
 navigator.geolocation.getCurrentPosition((coords) => {
-    yandexMapInit(coords.coords.latitude, coords.coords.longitude);
 
-    setToStorage(`lng`, coords.coords.longitude);
-    setToStorage(`lat`, coords.coords.latitude);
+    if (!getFromStorage(`lng`) || !getFromStorage(`lat`)) {
+        setToStorage(`lng`, coords.coords.longitude);
+        setToStorage(`lat`, coords.coords.latitude);
+    }
+
+    yandexMapInit();
 
     const currentUserLocation = reverseGeocoding(coords);
     currentUserLocation.then(data => {
@@ -17,8 +20,6 @@ navigator.geolocation.getCurrentPosition((coords) => {
         weatherDrawing(city, coords.coords.latitude, coords.coords.longitude);
     })
 });
-
-
 
 const searchForm = document.querySelector(".search-form");
 
@@ -40,21 +41,13 @@ searchForm.addEventListener("submit", (e) => {
                 weatherDrawing(city, lat, lng);
             })
         }
-
     });
 });
-
-
 
 
 if (!getFromStorage(`languageForSearch`)) {
     setToStorage(`languageForSearch`, `en`);
 }
-
-
-
-
-
 
 
 const switchLanguageToEn = document.querySelector(`.button-en`);
@@ -63,7 +56,6 @@ switchLanguageToEn.addEventListener(`click`, () => {
     getWeatherInfo(null, null, `en`);
     translate(`en`);
 })
-
 
 const switchLanguageToRu = document.querySelector(`.button-ru`);
 switchLanguageToRu.addEventListener(`click`, () => {
@@ -90,4 +82,3 @@ switchTemperatureToC.addEventListener(`click`, () => {
     setToStorage(`typeOfTemperature`, `c`);
     switchTemperature(`c`);
 })
-

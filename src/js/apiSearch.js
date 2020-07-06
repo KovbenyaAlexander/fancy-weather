@@ -33,12 +33,12 @@ export async function reverseGeocoding(pos, lat, lng) {
     }
 }
 
-
 export async function getWeatherInfo(lat, lng, language) {
-    language = getFromStorage(`languageForSearch`);
 
+    language = getFromStorage(`languageForSearch`);
     lat = getFromStorage(`lat`);
     lng = getFromStorage(`lng`);
+
     const url = `https://api.weatherapi.com/v1/forecast.json?key=0faa504995bd4273abe171804200407&lang=${language}&q=${lat},${lng}&days=3`;
     const res = await fetch(url);
     const data = await res.json();
@@ -46,39 +46,6 @@ export async function getWeatherInfo(lat, lng, language) {
 
     return data;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-export async function getWeatherInfo(lat, lng, language) {
-    if (!language) {
-        language = `en`;
-    } else {
-        lat = getFromStorage(`lat`);
-        lng = getFromStorage(`lng`);
-        const url = `https://api.weatherapi.com/v1/forecast.json?key=0faa504995bd4273abe171804200407&lang=${language}&q=${lat},${lng}&days=3`;
-        const res = await fetch(url);
-        const data = await res.json();
-        weatherDrawing(null, null, null, data);
-    }
-
-    const url = `https://api.weatherapi.com/v1/forecast.json?key=0faa504995bd4273abe171804200407&lang=${language}&q=${lat},${lng}&days=3`;
-    const res = await fetch(url);
-    const data = await res.json();
-    return data;
-}
-*/
-
 
 
 

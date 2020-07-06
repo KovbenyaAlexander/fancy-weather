@@ -3,7 +3,6 @@ import { getFromStorage, setToStorage } from './storage'
 
 export default function weatherDrawing(city, lat, lng, data) {
 
-
     let typeOfTemperature;
 
     if (!getFromStorage(`typeOfTemperature`)) {
@@ -13,9 +12,6 @@ export default function weatherDrawing(city, lat, lng, data) {
         typeOfTemperature = getFromStorage(`typeOfTemperature`);
     }
 
-
-
-
     if (!data) {
         data = getWeatherInfo(lat, lng);
         data.then(data => {
@@ -24,9 +20,6 @@ export default function weatherDrawing(city, lat, lng, data) {
     } else {
         addWeatherInfoInDom(data)
     }
-
-
-
 
     function addWeatherInfoInDom(data) {
         const town = document.querySelector(`.weather__town`);
@@ -44,14 +37,44 @@ export default function weatherDrawing(city, lat, lng, data) {
         const weatherIco = document.querySelector(`.weather__ico`);
         weatherIco.innerHTML = `<img src ="${data.current.condition.icon}">`;
 
-        const windSpeedText = document.querySelector(`.wind-speed-text`);
-        windSpeedText.innerHTML = `Wind speed:`;
+        if (getFromStorage(`languageForSearch`) === `ru`) {
+            const windSpeedText = document.querySelector(`.wind-speed-text`);
+            windSpeedText.innerHTML = `Скорость ветра:`;
 
-        const windSpeedValue = document.querySelector(`.wind-speed-value`);
-        windSpeedValue.innerHTML = `${data.current.wind_mph}`;
+            const windSpeedValue = document.querySelector(`.wind-speed-value`);
+            windSpeedValue.innerHTML = `${data.current.wind_mph}`;
 
-        const humidity = document.querySelector(`.humidity`);
-        humidity.innerHTML = `Humidity: ${data.current.humidity}`;
+            const windSpeedMeasure = document.querySelector(`.wind-speed-measure`);
+            windSpeedMeasure.innerHTML = `м/ч`;
+
+            const humidity = document.querySelector(`.humidity`);
+            humidity.innerHTML = `Влажность: ${data.current.humidity}`;
+
+        } else if (getFromStorage(`languageForSearch`) === `uk`) {
+            const windSpeedText = document.querySelector(`.wind-speed-text`);
+            windSpeedText.innerHTML = `Швидкість вітру:`;
+
+            const windSpeedValue = document.querySelector(`.wind-speed-value`);
+            windSpeedValue.innerHTML = `${data.current.wind_mph}`;
+
+            const windSpeedMeasure = document.querySelector(`.wind-speed-measure`);
+            windSpeedMeasure.innerHTML = `м/ч`;
+
+            const humidity = document.querySelector(`.humidity`);
+            humidity.innerHTML = `Вологість: ${data.current.humidity}`;
+        } else {
+            const windSpeedText = document.querySelector(`.wind-speed-text`);
+            windSpeedText.innerHTML = `Wind speed:`;
+
+            const windSpeedValue = document.querySelector(`.wind-speed-value`);
+            windSpeedValue.innerHTML = `${data.current.wind_mph}`;
+
+            const windSpeedMeasure = document.querySelector(`.wind-speed-measure`);
+            windSpeedMeasure.innerHTML = `mph`;
+
+            const humidity = document.querySelector(`.humidity`);
+            humidity.innerHTML = `Humidity: ${data.current.humidity}`;
+        }
 
         const degreeValue = document.querySelector(`.degree-value`);
         if (typeOfTemperature === `c`) {
@@ -81,12 +104,10 @@ export default function weatherDrawing(city, lat, lng, data) {
                 setToStorage(`dayTemparatureInC${i}`, data.forecast.forecastday[i].day.avgtemp_c);
                 setToStorage(`dayTemparatureInF${i}`, data.forecast.forecastday[i].day.avgtemp_f);
             }
-
         })
 
         setToStorage(`currentTemp_C`, data.current.temp_c);
         setToStorage(`currentTemp_F`, data.current.temp_f);
     }
-
 
 }
