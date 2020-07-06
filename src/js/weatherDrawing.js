@@ -1,4 +1,4 @@
-import { getWeatherInfo } from './apiSearch'
+import { getWeatherInfo, getCityName } from './apiSearch'
 import { getFromStorage, setToStorage } from './storage'
 
 export default function weatherDrawing(city, lat, lng, data) {
@@ -22,11 +22,13 @@ export default function weatherDrawing(city, lat, lng, data) {
     }
 
     function addWeatherInfoInDom(data) {
-        const town = document.querySelector(`.weather__town`);
-        town.innerHTML = `Название города взять из другого апи`;
 
-        const country = document.querySelector(`.weather__country`);
-        country.innerHTML = `Название страны взять из другого апи`;
+
+        const response = getCityName();
+        response.then(response => {
+            const town = document.querySelector(`.weather__town`);
+            town.innerHTML = response;
+        })
 
         const time = document.querySelector(`.weather__time`);
         time.innerHTML = `time?`;

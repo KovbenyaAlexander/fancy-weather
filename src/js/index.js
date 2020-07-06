@@ -2,7 +2,7 @@ import yandexMapInit from './yandexMap';
 import { getCoordinatsByCityName, reverseGeocoding } from './apiSearch';
 import weatherDrawing from './weatherDrawing';
 import { getFromStorage, setToStorage } from './storage'
-import { getWeatherInfo } from './apiSearch'
+import { getWeatherInfo, getCityName } from './apiSearch'
 import { switchTemperature, translate } from './translate'
 
 navigator.geolocation.getCurrentPosition((coords) => {
@@ -55,6 +55,7 @@ switchLanguageToEn.addEventListener(`click`, () => {
     setToStorage(`languageForSearch`, `en`);
     getWeatherInfo(null, null, `en`);
     translate(`en`);
+    getCityName();
 })
 
 const switchLanguageToRu = document.querySelector(`.button-ru`);
@@ -62,6 +63,7 @@ switchLanguageToRu.addEventListener(`click`, () => {
     setToStorage(`languageForSearch`, `ru`);
     getWeatherInfo(null, null, `ru`);
     translate(`ru`);
+    getCityName();
 })
 
 const switchLanguageToUk = document.querySelector(`.button-uk`);
@@ -69,6 +71,7 @@ switchLanguageToUk.addEventListener(`click`, () => {
     setToStorage(`languageForSearch`, `uk`);
     getWeatherInfo(null, null, `uk`);
     translate(`uk`);
+    getCityName();
 })
 
 const switchTemperatureToF = document.querySelector(`.switchTemperatureToF`);
