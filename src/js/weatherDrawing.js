@@ -3,14 +3,6 @@ import { getFromStorage, setToStorage } from './storage'
 
 export default function weatherDrawing(city, lat, lng, data) {
 
-    if (!data) {
-        data = getWeatherInfo(lat, lng);
-        data.then(data => {
-            addWeatherInfoInDom(data);
-        })
-    } else {
-        addWeatherInfoInDom(data)
-    }
 
     let typeOfTemperature;
 
@@ -20,6 +12,20 @@ export default function weatherDrawing(city, lat, lng, data) {
     } else {
         typeOfTemperature = getFromStorage(`typeOfTemperature`);
     }
+
+
+
+
+    if (!data) {
+        data = getWeatherInfo(lat, lng);
+        data.then(data => {
+            addWeatherInfoInDom(data);
+        })
+    } else {
+        addWeatherInfoInDom(data)
+    }
+
+
 
 
     function addWeatherInfoInDom(data) {
@@ -38,8 +44,11 @@ export default function weatherDrawing(city, lat, lng, data) {
         const weatherIco = document.querySelector(`.weather__ico`);
         weatherIco.innerHTML = `<img src ="${data.current.condition.icon}">`;
 
-        const windSpeed = document.querySelector(`.wind-speed`);
-        windSpeed.innerHTML = `Wind speed: ${data.current.wind_mph}mph`;
+        const windSpeedText = document.querySelector(`.wind-speed-text`);
+        windSpeedText.innerHTML = `Wind speed:`;
+
+        const windSpeedValue = document.querySelector(`.wind-speed-value`);
+        windSpeedValue.innerHTML = `${data.current.wind_mph}`;
 
         const humidity = document.querySelector(`.humidity`);
         humidity.innerHTML = `Humidity: ${data.current.humidity}`;

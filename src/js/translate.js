@@ -1,6 +1,6 @@
 import { getFromStorage, setToStorage } from './storage'
 
-export default function switchTemperature(typeOfTemperature) {
+export function switchTemperature(typeOfTemperature) {
     const degreeValue = document.querySelector(`.degree-value`);
     if (typeOfTemperature === `c`) {
         degreeValue.innerHTML = getFromStorage(`currentTemp_C`);
@@ -19,4 +19,10 @@ export default function switchTemperature(typeOfTemperature) {
         }
     })
 
+}
+
+export function translate(language) {
+    if (language === `ru`) {
+
+    }
 }
