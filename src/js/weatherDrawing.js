@@ -1,4 +1,5 @@
 import { getWeatherInfo } from './apiSearch'
+import { getFromStorage, setToStorage } from './storage'
 
 export default function weatherDrawing(city, lat, lng, data) {
 
@@ -11,7 +12,14 @@ export default function weatherDrawing(city, lat, lng, data) {
         addWeatherInfoInDom(data)
     }
 
+    let typeOfTemperature;
 
+    if (!getFromStorage(`typeOfTemperature`)) {
+        setToStorage(`typeOfTemperature`, `c`);
+        typeOfTemperature = `c`;
+    } else {
+        typeOfTemperature = getFromStorage(`typeOfTemperature`);
+    }
 
 
     function addWeatherInfoInDom(data) {
@@ -37,7 +45,11 @@ export default function weatherDrawing(city, lat, lng, data) {
         humidity.innerHTML = `Humidity: ${data.current.humidity}`;
 
         const degreeValue = document.querySelector(`.degree-value`);
-        degreeValue.innerHTML = `${data.current.temp_c}`;
+        if (typeOfTemperature === `c`) {
+            degreeValue.innerHTML = `${data.current.temp_c}`;
+        } else {
+            degreeValue.innerHTML = `${data.current.temp_f}`;
+        }
 
         const additionalDays = document.querySelectorAll(`.weather__add-days`);
         additionalDays.forEach((item, i) => {
@@ -51,12 +63,21 @@ export default function weatherDrawing(city, lat, lng, data) {
             weatherConditionIco.innerHTML = `<img src=${data.forecast.forecastday[i].day.condition.icon}>`;
 
             const temperature = item.querySelector(`.temperature_in_this_day`);
-            temperature.innerHTML = `${data.forecast.forecastday[i].day.avgtemp_c}`;
+            if (typeOfTemperature === `c`) {
+                temperature.innerHTML = data.forecast.forecastday[i].day.avgtemp_c;
+                setToStorage(`dayTemparatureInC${i}`, data.forecast.forecastday[i].day.avgtemp_c);
+                setToStorage(`dayTemparatureInF${i}`, data.forecast.forecastday[i].day.avgtemp_f);
+            } else {
+                temperature.innerHTML = data.forecast.forecastday[i].day.avgtemp_f;
+                setToStorage(`dayTemparatureInC${i}`, data.forecast.forecastday[i].day.avgtemp_c);
+                setToStorage(`dayTemparatureInF${i}`, data.forecast.forecastday[i].day.avgtemp_f);
+            }
+
         })
+
+        setToStorage(`currentTemp_C`, data.current.temp_c);
+        setToStorage(`currentTemp_F`, data.current.temp_f);
     }
-
-
-
 
 
 }

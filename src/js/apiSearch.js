@@ -43,11 +43,13 @@ export async function getWeatherInfo(lat, lng, language) {
         const res = await fetch(url);
         const data = await res.json();
         weatherDrawing(null, null, null, data);
+        console.log(data);
     }
 
     const url = `https://api.weatherapi.com/v1/forecast.json?key=0faa504995bd4273abe171804200407&lang=${language}&q=${lat},${lng}&days=3`;
     const res = await fetch(url);
     const data = await res.json();
+    console.log(data);
     return data;
 }
 

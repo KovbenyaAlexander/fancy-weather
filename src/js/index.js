@@ -3,7 +3,7 @@ import { getCoordinatsByCityName, reverseGeocoding } from './apiSearch';
 import weatherDrawing from './weatherDrawing';
 import { getFromStorage, setToStorage } from './storage'
 import { getWeatherInfo } from './apiSearch'
-
+import switchTemperature from './switchTemperature'
 
 navigator.geolocation.getCurrentPosition((coords) => {
     yandexMapInit(coords.coords.latitude, coords.coords.longitude);
@@ -13,7 +13,6 @@ navigator.geolocation.getCurrentPosition((coords) => {
 
     const currentUserLocation = reverseGeocoding(coords);
     currentUserLocation.then(data => {
-        //console.log(data);
         const city = data.results[0].components.city || data.results[0].components.town || data.results[0].components.village || data.results[0].components.county || data.results[0].components.state;
         weatherDrawing(city, coords.coords.latitude, coords.coords.longitude);
     })
@@ -62,3 +61,16 @@ const switchLanguageToUk = document.querySelector(`.button-uk`);
 switchLanguageToUk.addEventListener(`click`, () => {
     getWeatherInfo(null, null, `uk`);
 })
+
+const switchTemperatureToF = document.querySelector(`.switchTemperatureToF`);
+switchTemperatureToF.addEventListener(`click`, () => {
+    setToStorage(`typeOfTemperature`, `f`);
+    switchTemperature(`f`);
+})
+
+const switchTemperatureToC = document.querySelector(`.switchTemperatureToC`);
+switchTemperatureToC.addEventListener(`click`, () => {
+    setToStorage(`typeOfTemperature`, `c`);
+    switchTemperature(`c`);
+})
+
