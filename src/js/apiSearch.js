@@ -1,5 +1,7 @@
 import { getFromStorage, setToStorage } from './storage'
 import weatherDrawing from './weatherDrawing';
+import timeDrawing from './timeDrawing';
+
 
 export async function getCoordinatsByCityName(event) {
     if (event) {
@@ -25,18 +27,17 @@ export async function reverseGeocoding(pos, lat, lng) {
         const url = `https://api.opencagedata.com/geocode/v1/json?q=${coord.latitude}+${coord.longitude}&key=99ecf60eb3944fd69770b5c974614a6a&language=en`;
         const res = await fetch(url);
         const data = await res.json();
-        console.log(data);
         return data;
     } else {
         const url = `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=99ecf60eb3944fd69770b5c974614a6a&language=en`;
         const res = await fetch(url);
         const data = await res.json();
-        console.log(data);
+        //console.log(data);
         return data;
     }
 }
 
-export async function getWeatherInfo(lat, lng) {
+export async function getWeatherInfo(lat, lng, isFirstLoadPage) {
 
     const language = getFromStorage(`languageForSearch`);
     lat = getFromStorage(`lat`);
@@ -45,7 +46,10 @@ export async function getWeatherInfo(lat, lng) {
     const url = `https://api.weatherapi.com/v1/forecast.json?key=0faa504995bd4273abe171804200407&lang=${language}&q=${lat},${lng}&days=3`;
     const res = await fetch(url);
     const data = await res.json();
-    weatherDrawing(null, null, null, data);
+
+    if (isFirstLoadPage) {
+        weatherDrawing(null, null, null, data);
+    }
 
     return data;
 }
@@ -63,9 +67,8 @@ export async function getCityName() {
     const data = await res.json();
     const city = data.results[0].components.city || data.results[0].components.town || data.results[0].components.village || data.results[0].components.county || data.results[0].components.state;
 
+
+    timeDrawing(data);
+
     return city;
 }
-
-
-
-

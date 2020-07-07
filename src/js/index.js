@@ -17,7 +17,8 @@ navigator.geolocation.getCurrentPosition((coords) => {
     const currentUserLocation = reverseGeocoding(coords);
     currentUserLocation.then(data => {
         const city = data.results[0].components.city || data.results[0].components.town || data.results[0].components.village || data.results[0].components.county || data.results[0].components.state;
-        weatherDrawing(city, coords.coords.latitude, coords.coords.longitude);
+        //weatherDrawing(city, coords.coords.latitude, coords.coords.longitude);
+        getWeatherInfo(city, coords.coords.latitude, coords.coords.longitude, true);
     })
 });
 

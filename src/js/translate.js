@@ -3,9 +3,9 @@ import { getFromStorage, setToStorage } from './storage'
 export function switchTemperature(typeOfTemperature) {
     const degreeValue = document.querySelector(`.degree-value`);
     if (typeOfTemperature === `c`) {
-        degreeValue.innerHTML = getFromStorage(`currentTemp_C`);
+        degreeValue.innerHTML = getFromStorage(`currentTemp_C`) + `C`;
     } else {
-        degreeValue.innerHTML = getFromStorage(`currentTemp_F`);
+        degreeValue.innerHTML = getFromStorage(`currentTemp_F`) + `F`;
     }
 
     const additionalDays = document.querySelectorAll(`.weather__add-days`);
@@ -13,9 +13,9 @@ export function switchTemperature(typeOfTemperature) {
 
         const temperature = item.querySelector(`.temperature_in_this_day`);
         if (typeOfTemperature === `c`) {
-            temperature.innerHTML = getFromStorage(`dayTemparatureInC${i}`);
+            temperature.innerHTML = getFromStorage(`dayTemparatureInC${i}`) + `C`;
         } else {
-            temperature.innerHTML = getFromStorage(`dayTemparatureInF${i}`);
+            temperature.innerHTML = getFromStorage(`dayTemparatureInF${i}`) + `F`;
         }
     })
 
