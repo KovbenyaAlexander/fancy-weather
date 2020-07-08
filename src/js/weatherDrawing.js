@@ -27,13 +27,14 @@ export default function weatherDrawing(city, lat, lng, data) {
 
         const response = getCityName();
         response.then(response => {
-            //console.log(response);
             const town = document.querySelector(`.weather__town`);
             town.innerHTML = response[0];
 
             const country = document.querySelector(`.weather__country`);
             country.innerHTML = response[1];
         })
+
+
 
         const currentWeather = document.querySelector(`.weather__current-text`);
         currentWeather.innerHTML = data.current.condition.text;
@@ -54,6 +55,13 @@ export default function weatherDrawing(city, lat, lng, data) {
             const humidity = document.querySelector(`.humidity`);
             humidity.innerHTML = `Влажность: ${data.current.humidity}`;
 
+            const coordLat = document.querySelector(`.coordinates_lat`);
+            coordLat.innerHTML = `Широта: ${data.location.lat}`;
+
+            const coordLng = document.querySelector(`.coordinates_lng`);
+            coordLng.innerHTML = `Долгота: ${data.location.lon}`;
+
+
         } else if (getFromStorage(`languageForSearch`) === `uk`) {
             const windSpeedText = document.querySelector(`.wind-speed-text`);
             windSpeedText.innerHTML = `Швидкість вітру:`;
@@ -66,6 +74,12 @@ export default function weatherDrawing(city, lat, lng, data) {
 
             const humidity = document.querySelector(`.humidity`);
             humidity.innerHTML = `Вологість: ${data.current.humidity}`;
+
+            const coordLat = document.querySelector(`.coordinates_lat`);
+            coordLat.innerHTML = `Широта: ${data.location.lat}`;
+
+            const coordLng = document.querySelector(`.coordinates_lng`);
+            coordLng.innerHTML = `Довгота: ${data.location.lon}`;
         } else {
             const windSpeedText = document.querySelector(`.wind-speed-text`);
             windSpeedText.innerHTML = `Wind speed:`;
@@ -78,6 +92,12 @@ export default function weatherDrawing(city, lat, lng, data) {
 
             const humidity = document.querySelector(`.humidity`);
             humidity.innerHTML = `Humidity: ${data.current.humidity}`;
+
+            const coordLat = document.querySelector(`.coordinates_lat`);
+            coordLat.innerHTML = `Latitude: ${data.location.lat}`;
+
+            const coordLng = document.querySelector(`.coordinates_lng`);
+            coordLng.innerHTML = `Longitude: ${data.location.lon}`;
         }
 
         const degreeValue = document.querySelector(`.degree-value`);
