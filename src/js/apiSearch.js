@@ -66,9 +66,9 @@ export async function getCityName() {
     const res = await fetch(url);
     const data = await res.json();
     const city = data.results[0].components.city || data.results[0].components.town || data.results[0].components.village || data.results[0].components.county || data.results[0].components.state;
-
+    const country = data.results[0].components.country;
 
     timeDrawing(data);
 
-    return city;
+    return [city, country];
 }

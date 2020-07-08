@@ -27,8 +27,12 @@ export default function weatherDrawing(city, lat, lng, data) {
 
         const response = getCityName();
         response.then(response => {
+            //console.log(response);
             const town = document.querySelector(`.weather__town`);
-            town.innerHTML = response;
+            town.innerHTML = response[0];
+
+            const country = document.querySelector(`.weather__country`);
+            country.innerHTML = response[1];
         })
 
         const currentWeather = document.querySelector(`.weather__current-text`);
