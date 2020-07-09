@@ -3,10 +3,21 @@
     padding: 0;
 }
 
-body{
-
+ html,body{
     width: 100%;
     height: 100%;
+    background: 100% 100% no-repeat;
+    background-size: cover;
+    z-index: -2;
+    color: white;
+}
+
+.cover{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
 }
 
 .header{
@@ -19,7 +30,7 @@ body{
 
 .main{
     width: 80%;
-    height: 700px;
+    height: 65%;
     border: 1px solid black;
     margin: 0 auto;
     display: flex;
@@ -33,7 +44,7 @@ body{
 
 .weather{
     width: 100%;
-    height: 650px;
+    height: 50%;
     border: 1px solid black;
 }
 

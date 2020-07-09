@@ -1,9 +1,13 @@
 import yandexMapInit from './yandexMap';
-import { getCoordinatsByCityName, reverseGeocoding } from './apiSearch';
+import { getCoordinatsByCityName, reverseGeocoding, setBackgroundImage } from './apiSearch';
 import weatherDrawing from './weatherDrawing';
 import { getFromStorage, setToStorage } from './storage'
 import { getWeatherInfo, getCityName } from './apiSearch'
 import { switchTemperature, translate } from './translate'
+
+
+
+setBackgroundImage();
 
 navigator.geolocation.getCurrentPosition((coords) => {
 

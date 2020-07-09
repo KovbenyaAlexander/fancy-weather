@@ -72,3 +72,18 @@ export async function getCityName() {
 
     return [city, country];
 }
+
+
+export async function setBackgroundImage() {
+
+    const url = `https://api.unsplash.com/photos/random?orientation=landscape&per_page=1&query=nature&client_id=i-N82jSOSlLR-RInTOxxRnWEE1E5dKdIndWRh0xTdBw`;
+    const res = await fetch(url);
+    const data = await res.json();
+
+    //const backgroundImageLink = data.urls.small;
+
+    const body = document.querySelector(`.body`);
+    console.log(body);
+    console.log(data);
+    body.style.backgroundImage = `url(${data.urls.regular})`;
+}
