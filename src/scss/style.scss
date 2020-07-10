@@ -4,6 +4,7 @@
 }
 
  html,body{
+    font-family: 'Jura', sans-serif;
     width: 100%;
     height: 100%;
     background: 100% 100% no-repeat;
@@ -12,26 +13,41 @@
     color: white;
 }
 
+.weather__location, .eather__town, .weather__country, .weather__time, .weather__date, .weather__curent-condition, .humidity, .weather__temperature, .wind-speed-text{
+    text-align: center;
+}
+
+.weather__location{
+    font-size: 25px;
+}
+
+.weather__time, .weather__date{
+    font-size: 20px;
+}
+
+.weather__current-text, .weather__temperature{
+    font-size: 35px;
+}
+
 .cover{
     position: absolute;
     z-index: -1;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .header{
-    width: 80%;
-    border: 1px solid black;
+    width: 70%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    padding-top: 30px;
 }
 
 .main{
-    width: 80%;
+    width: 70%;
     height: 65%;
-    border: 1px solid black;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -43,9 +59,10 @@
 }
 
 .weather{
+    display: grid;
+    grid-template-columns: 8fr 1fr;
     width: 100%;
     height: 50%;
-    border: 1px solid black;
 }
 
 .weather__today{
@@ -55,9 +72,12 @@
 .weather__next-days{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-column: 1/3;
 }
 .weather__add-days{
-    border: 1px solid black;
     height: 150px;
     margin: 2%;
+    padding: 1%;
+    border: 2px solid white;
+    border-radius: 5%;
 }

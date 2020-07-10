@@ -1,7 +1,6 @@
 import { getFromStorage, setToStorage } from './storage'
 
 export default function timeDrawing(data) {
-    console.log(data);
     const offsetMillisec = data.results[0].annotations.timezone.offset_sec * 1000;
     const timeStamp = Math.floor(new Date());
     const currentTimeMS = offsetMillisec + timeStamp;
@@ -16,10 +15,6 @@ export default function timeDrawing(data) {
     const cutrrentMonth = currentTimeStamp.getUTCMonth();
     const cutrrentDay = currentTimeStamp.getUTCDate();
 
-    console.log(cutrrentYear);
-    console.log(cutrrentMonth);
-    console.log(cutrrentDay);
-
     dateDomElement.innerHTML = `${cutrrentDay}/${cutrrentMonth + 1}/${cutrrentYear}`
 
     /*
@@ -31,10 +26,6 @@ export default function timeDrawing(data) {
         const daysOfWeekRU = [`Понедельник`, `Вторник`, `Среда`, `Четверг`, `Пятница`, `Суббота`, `Воскресенье`];
         const daysOfWeekUK = [`Понеділок`, `Вівторок`, `Середа`, `Четвер`, `П'ятниця`, `Субота`, `Неділя`];
     */
-
-
-
-
 
     if (getFromStorage(`intervalID`)) {
         clearInterval(getFromStorage(`intervalID`));
@@ -75,11 +66,6 @@ export default function timeDrawing(data) {
                 }
             }
         }
-
-
-
-
-
 
         time += 1;
     }, 1000)

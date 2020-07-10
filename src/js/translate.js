@@ -20,9 +20,3 @@ export function switchTemperature(typeOfTemperature) {
     })
 
 }
-
-export function translate(language) {
-    if (language === `ru`) {
-
-    }
-}

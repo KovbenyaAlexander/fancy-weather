@@ -3,11 +3,11 @@ import { getCoordinatsByCityName, reverseGeocoding, setBackgroundImage } from '.
 import weatherDrawing from './weatherDrawing';
 import { getFromStorage, setToStorage } from './storage'
 import { getWeatherInfo, getCityName } from './apiSearch'
-import { switchTemperature, translate } from './translate'
+import { switchTemperature } from './translate'
 
 
 
-setBackgroundImage();
+//setBackgroundImage();
 
 navigator.geolocation.getCurrentPosition((coords) => {
 
@@ -21,7 +21,6 @@ navigator.geolocation.getCurrentPosition((coords) => {
     const currentUserLocation = reverseGeocoding(coords);
     currentUserLocation.then(data => {
         const city = data.results[0].components.city || data.results[0].components.town || data.results[0].components.village || data.results[0].components.county || data.results[0].components.state;
-        //weatherDrawing(city, coords.coords.latitude, coords.coords.longitude);
         getWeatherInfo(city, coords.coords.latitude, coords.coords.longitude, true);
     })
 });
@@ -59,7 +58,6 @@ const switchLanguageToEn = document.querySelector(`.button-en`);
 switchLanguageToEn.addEventListener(`click`, () => {
     setToStorage(`languageForSearch`, `en`);
     getWeatherInfo(null, null, `en`);
-    translate(`en`);
     getCityName();
 })
 
@@ -90,3 +88,9 @@ switchTemperatureToC.addEventListener(`click`, () => {
     setToStorage(`typeOfTemperature`, `c`);
     switchTemperature(`c`);
 })
+
+const refreshButton = document.querySelector(`.refresh`);
+refreshButton.addEventListener(`click`, () => {
+    setBackgroundImage();
+})
+

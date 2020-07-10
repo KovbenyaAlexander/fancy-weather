@@ -3,8 +3,6 @@ import { getFromStorage, setToStorage } from './storage'
 
 export default function weatherDrawing(city, lat, lng, data) {
 
-    console.log(`++`);
-
     let typeOfTemperature;
 
     if (!getFromStorage(`typeOfTemperature`)) {
@@ -39,18 +37,21 @@ export default function weatherDrawing(city, lat, lng, data) {
         const currentWeather = document.querySelector(`.weather__current-text`);
         currentWeather.innerHTML = data.current.condition.text;
 
+
         const weatherIco = document.querySelector(`.weather__ico`);
-        weatherIco.innerHTML = `<img src ="${data.current.condition.icon}">`;
+        weatherIco.innerHTML = `<img src ="${data.current.condition.icon}" width="256px">`;
+
+
 
         if (getFromStorage(`languageForSearch`) === `ru`) {
             const windSpeedText = document.querySelector(`.wind-speed-text`);
-            windSpeedText.innerHTML = `Скорость ветра:`;
+            windSpeedText.innerHTML = `Скорость ветра: ${data.current.wind_mph} м/ч`;
 
-            const windSpeedValue = document.querySelector(`.wind-speed-value`);
-            windSpeedValue.innerHTML = `${data.current.wind_mph}`;
+            //const windSpeedValue = document.querySelector(`.wind-speed-value`);
+            //windSpeedValue.innerHTML = `${data.current.wind_mph}`;
 
-            const windSpeedMeasure = document.querySelector(`.wind-speed-measure`);
-            windSpeedMeasure.innerHTML = `м/ч`;
+            //const windSpeedMeasure = document.querySelector(`.wind-speed-measure`);
+            //windSpeedMeasure.innerHTML = `м/ч`;
 
             const humidity = document.querySelector(`.humidity`);
             humidity.innerHTML = `Влажность: ${data.current.humidity}`;
@@ -64,13 +65,13 @@ export default function weatherDrawing(city, lat, lng, data) {
 
         } else if (getFromStorage(`languageForSearch`) === `uk`) {
             const windSpeedText = document.querySelector(`.wind-speed-text`);
-            windSpeedText.innerHTML = `Швидкість вітру:`;
+            windSpeedText.innerHTML = `Швидкість вітру: ${data.current.wind_mph} м/ч`;
 
-            const windSpeedValue = document.querySelector(`.wind-speed-value`);
-            windSpeedValue.innerHTML = `${data.current.wind_mph}`;
+            //const windSpeedValue = document.querySelector(`.wind-speed-value`);
+            //windSpeedValue.innerHTML = `${data.current.wind_mph}`;
 
-            const windSpeedMeasure = document.querySelector(`.wind-speed-measure`);
-            windSpeedMeasure.innerHTML = `м/ч`;
+            //const windSpeedMeasure = document.querySelector(`.wind-speed-measure`);
+            //windSpeedMeasure.innerHTML = `м/ч`;
 
             const humidity = document.querySelector(`.humidity`);
             humidity.innerHTML = `Вологість: ${data.current.humidity}`;
@@ -82,13 +83,13 @@ export default function weatherDrawing(city, lat, lng, data) {
             coordLng.innerHTML = `Довгота: ${data.location.lon}`;
         } else {
             const windSpeedText = document.querySelector(`.wind-speed-text`);
-            windSpeedText.innerHTML = `Wind speed:`;
+            windSpeedText.innerHTML = `Wind speed: ${data.current.wind_mph} mph`;
 
-            const windSpeedValue = document.querySelector(`.wind-speed-value`);
-            windSpeedValue.innerHTML = `${data.current.wind_mph}`;
+            //const windSpeedValue = document.querySelector(`.wind-speed-value`);
+            //windSpeedValue.innerHTML = `${data.current.wind_mph}`;
 
-            const windSpeedMeasure = document.querySelector(`.wind-speed-measure`);
-            windSpeedMeasure.innerHTML = `mph`;
+            //const windSpeedMeasure = document.querySelector(`.wind-speed-measure`);
+            //windSpeedMeasure.innerHTML = `mph`;
 
             const humidity = document.querySelector(`.humidity`);
             humidity.innerHTML = `Humidity: ${data.current.humidity}`;
@@ -116,7 +117,7 @@ export default function weatherDrawing(city, lat, lng, data) {
             weatherCondition.innerHTML = data.forecast.forecastday[i].day.condition.text;
 
             const weatherConditionIco = item.querySelector(`.weather-condition-ico-in-this-day`);
-            weatherConditionIco.innerHTML = `<img src=${data.forecast.forecastday[i].day.condition.icon}>`;
+            weatherConditionIco.innerHTML = `<img src="${data.forecast.forecastday[i].day.condition.icon}">`;
 
             const temperature = item.querySelector(`.temperature_in_this_day`);
             if (typeOfTemperature === `c`) {

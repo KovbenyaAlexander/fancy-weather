@@ -32,7 +32,6 @@ export async function reverseGeocoding(pos, lat, lng) {
         const url = `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=99ecf60eb3944fd69770b5c974614a6a&language=en`;
         const res = await fetch(url);
         const data = await res.json();
-        //console.log(data);
         return data;
     }
 }
@@ -58,7 +57,6 @@ export async function getWeatherInfo(lat, lng, isFirstLoadPage) {
 export async function getCityName() {
 
     const language = getFromStorage(`languageForSearch`);
-
     const lat = getFromStorage(`lat`);
     const lng = getFromStorage(`lng`);
 
@@ -80,10 +78,6 @@ export async function setBackgroundImage() {
     const res = await fetch(url);
     const data = await res.json();
 
-    //const backgroundImageLink = data.urls.small;
-
     const body = document.querySelector(`.body`);
-    console.log(body);
-    console.log(data);
-    body.style.backgroundImage = `url(${data.urls.regular})`;
+    body.style.backgroundImage = `url(${data.urls.small})`;
 }
