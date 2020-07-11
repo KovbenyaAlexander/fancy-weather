@@ -8,24 +8,24 @@
     <script src="https://api-maps.yandex.ru/2.1/?apikey=2b9541f7-ccfd-4a4d-8d04-882c3a5087a4&lang=ru_RU"
         type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@700&family=Quicksand&display=swap" rel="stylesheet">
-
-
 </head>
 
 <body class="body">
     <div class="cover"></div>
     <header class="header">
         <div class="buttons-panel">
-            <button class="refresh">Refresh</button>
-            <button class="button-en">en</button>
-            <button class="button-ru">ru</button>
-            <button class="button-uk">uk</button>
-            <button class="switchTemperatureToF">F</button>
-            <button class="switchTemperatureToC">C</button>
+            <button class="buttons-panel__refresh button">Refresh</button>
+
+            <button class="buttons-panel__button-en button">en</button>
+            <button class="buttons-panel__button-ru button">ru</button>
+            <button class="buttons-panel__button-uk button">uk</button>
+
+            <button class="switchTemperatureToF button">F</button>
+            <button class="switchTemperatureToC button">C</button>
         </div>
         <form class="search-form">
             <input type="text" class="search-form__input">
-            <button type="submit">Search</button>
+            <button type="submit" class="button search-button">Search</button>
         </form>
     </header>
 
