@@ -6,8 +6,7 @@ import { getWeatherInfo, getCityName } from './apiSearch'
 import { switchTemperature } from './translate'
 
 
-
-//setBackgroundImage();
+setBackgroundImage();
 
 navigator.geolocation.getCurrentPosition((coords) => {
 
@@ -48,7 +47,6 @@ searchForm.addEventListener("submit", (e) => {
     });
 });
 
-
 if (!getFromStorage(`languageForSearch`)) {
     setToStorage(`languageForSearch`, `en`);
 }
@@ -61,32 +59,17 @@ if (getFromStorage(`languageForSearch`)) {
 const buttonWithCurrentLanguage = document.querySelector(`.buttons-panel__button-${currentLanguage}`);
 buttonWithCurrentLanguage.classList.add(`active`);
 
-
-
 let currentTemperatureMeasure = `c`;
 if (getFromStorage(`typeOfTemperature`)) {
     currentTemperatureMeasure = getFromStorage(`typeOfTemperature`);
 }
 
-console.log(currentTemperatureMeasure.toUpperCase());
-
 const buttonWithCurrentMeasure = document.querySelector(`.switchTemperatureTo${currentTemperatureMeasure.toUpperCase()}`);
 buttonWithCurrentMeasure.classList.add(`active`);
-
-
-
-
-
-
-
-
-
-
 
 const switchLanguageToEn = document.querySelector(`.buttons-panel__button-en`);
 const switchLanguageToRu = document.querySelector(`.buttons-panel__button-ru`);
 const switchLanguageToUk = document.querySelector(`.buttons-panel__button-uk`);
-
 
 switchLanguageToEn.addEventListener(`click`, () => {
     setToStorage(`languageForSearch`, `en`);
@@ -107,7 +90,6 @@ switchLanguageToRu.addEventListener(`click`, () => {
     switchLanguageToUk.classList.remove(`active`);
 })
 
-
 switchLanguageToUk.addEventListener(`click`, () => {
     setToStorage(`languageForSearch`, `uk`);
     getWeatherInfo(null, null, `uk`);
@@ -116,7 +98,6 @@ switchLanguageToUk.addEventListener(`click`, () => {
     switchLanguageToRu.classList.remove(`active`);
     switchLanguageToEn.classList.remove(`active`);
 })
-
 
 const switchTemperatureToF = document.querySelector(`.switchTemperatureToF`);
 const switchTemperatureToC = document.querySelector(`.switchTemperatureToC`);
@@ -127,7 +108,6 @@ switchTemperatureToF.addEventListener(`click`, () => {
     switchTemperatureToF.classList.add(`active`);
     switchTemperatureToC.classList.remove(`active`);
 })
-
 
 switchTemperatureToC.addEventListener(`click`, () => {
     setToStorage(`typeOfTemperature`, `c`);

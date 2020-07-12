@@ -32,26 +32,18 @@ export default function weatherDrawing(city, lat, lng, data) {
             country.innerHTML = response[1];
         })
 
-
-
         const currentWeather = document.querySelector(`.weather__current-text`);
         currentWeather.innerHTML = data.current.condition.text;
 
-
         const weatherIco = document.querySelector(`.weather__ico`);
-        weatherIco.innerHTML = `<img src ="${data.current.condition.icon}" width="256px">`;
-
+        const IMGId = data.current.condition.icon[39] + data.current.condition.icon[40] + data.current.condition.icon[41];
+        const linkOfIMGTemplate = `http://cdn.weatherapi.com/weather/128x128/day/${IMGId}.png`
+        weatherIco.innerHTML = `<img src ="${linkOfIMGTemplate}" width="153,6px">`;
 
 
         if (getFromStorage(`languageForSearch`) === `ru`) {
             const windSpeedText = document.querySelector(`.wind-speed-text`);
             windSpeedText.innerHTML = `Скорость ветра: ${data.current.wind_mph} м/ч`;
-
-            //const windSpeedValue = document.querySelector(`.wind-speed-value`);
-            //windSpeedValue.innerHTML = `${data.current.wind_mph}`;
-
-            //const windSpeedMeasure = document.querySelector(`.wind-speed-measure`);
-            //windSpeedMeasure.innerHTML = `м/ч`;
 
             const humidity = document.querySelector(`.humidity`);
             humidity.innerHTML = `Влажность: ${data.current.humidity}`;
@@ -67,12 +59,6 @@ export default function weatherDrawing(city, lat, lng, data) {
             const windSpeedText = document.querySelector(`.wind-speed-text`);
             windSpeedText.innerHTML = `Швидкість вітру: ${data.current.wind_mph} м/ч`;
 
-            //const windSpeedValue = document.querySelector(`.wind-speed-value`);
-            //windSpeedValue.innerHTML = `${data.current.wind_mph}`;
-
-            //const windSpeedMeasure = document.querySelector(`.wind-speed-measure`);
-            //windSpeedMeasure.innerHTML = `м/ч`;
-
             const humidity = document.querySelector(`.humidity`);
             humidity.innerHTML = `Вологість: ${data.current.humidity}`;
 
@@ -84,12 +70,6 @@ export default function weatherDrawing(city, lat, lng, data) {
         } else {
             const windSpeedText = document.querySelector(`.wind-speed-text`);
             windSpeedText.innerHTML = `Wind speed: ${data.current.wind_mph} mph`;
-
-            //const windSpeedValue = document.querySelector(`.wind-speed-value`);
-            //windSpeedValue.innerHTML = `${data.current.wind_mph}`;
-
-            //const windSpeedMeasure = document.querySelector(`.wind-speed-measure`);
-            //windSpeedMeasure.innerHTML = `mph`;
 
             const humidity = document.querySelector(`.humidity`);
             humidity.innerHTML = `Humidity: ${data.current.humidity}`;

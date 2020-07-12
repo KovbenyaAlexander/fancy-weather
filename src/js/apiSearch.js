@@ -78,6 +78,12 @@ export async function setBackgroundImage() {
     const res = await fetch(url);
     const data = await res.json();
 
+    /*
     const body = document.querySelector(`.body`);
     body.style.backgroundImage = `url(${data.urls.small})`;
+    
+    */
+
+    const cover = document.querySelector(`.cover`);
+    cover.style.backgroundImage = `url(${data.urls.small})`;
 }
