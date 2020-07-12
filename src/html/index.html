@@ -16,17 +16,15 @@
     <header class="header">
         <div class="buttons-panel">
             <button class="buttons-panel__refresh button">Refresh</button>
-
             <button class="buttons-panel__button-en button">en</button>
             <button class="buttons-panel__button-ru button">ru</button>
             <button class="buttons-panel__button-uk button">uk</button>
-
-            <button class="switchTemperatureToF button">F</button>
-            <button class="switchTemperatureToC button">C</button>
+            <button class="buttons-panel__switchTemperatureToF button">F</button>
+            <button class="buttons-panel__switchTemperatureToC button">C</button>
         </div>
         <form class="search-form">
             <input type="text" class="search-form__input">
-            <button type="submit" class="button search-button">Search</button>
+            <button type="submit" class="search-button button">Search</button>
         </form>
     </header>
 
@@ -45,53 +43,55 @@
                     <div class="weather__current-text"></div>
                 </div>
                 <div class="weather__temperature">
-                    <div class="degree-value"></div>
-                    <span class="degree-symbol"></span>
+                    <div class="weather__degree-value"></div>
+                    <span class="weather__degree-symbol"></span>
                 </div>
                 <br>
-                <div class="weather_additional-info">
-                    <div class="wind-speed">
-                        <div class="wind-speed-text"></div>
+                <div class="weather__additional-info">
+                    <div class="weather__wind-speed">
+                        <div class="weather__wind-speed"></div>
                     </div>
-                    <p class="humidity"></p>
+                    <p class="weather__humidity"></p>
                 </div>
             </div>
             <div class="weather__ico"></div>
-            <div class="weather__next-days">
-                <div class="weather__add-days weather__today ">
-                    <div class="weather-date"></div>
+
+            <div class="add-weather">
+                <div class="add-weather__cell add-weather__today">
+                    <div class="add-weather__weather-date"></div>
                     <br>
-                    <div class="weather-condition-in-this-day"></div>
+                    <div class="add-weather__weather-condition-in-this-day"></div>
                     <div class="weather-container">
-                        <div class="temperature_in_this_day"></div>
-                        <div class="weather-condition-ico-in-this-day"></div>
+                        <div class="add-weather__temperature_in_this_day"></div>
+                        <div class="add-weather__weather-condition-ico-in-this-day"></div>
                     </div>
                 </div>
-                <div class="weather__add-days weather__tomorrow">
-                    <div class="weather-date"></div>
+                <div class="add-weather__cell add-weather__tomorrow">
+                    <div class="add-weather__weather-date"></div>
                     <br>
-                    <div class="weather-condition-in-this-day"></div>
+                    <div class="add-weather__weather-condition-in-this-day"></div>
                     <div class="weather-container">
-                        <div class="temperature_in_this_day"></div>
-                        <div class="weather-condition-ico-in-this-day"></div>
+                        <div class="add-weather__temperature_in_this_day"></div>
+                        <div class="add-weather__weather-condition-ico-in-this-day"></div>
                     </div>
                 </div>
-                <div class="weather__add-days weather__the-day-after-tomorrow">
-                    <div class="weather-date"></div>
+                <div class="add-weather__cell add-weather__the-day-after-tomorrow">
+                    <div class="add-weather__weather-date"></div>
                     <br>
-                    <div class="weather-condition-in-this-day"></div>
+                    <div class="add-weather__weather-condition-in-this-day"></div>
                     <div class="weather-container">
-                        <div class="temperature_in_this_day"></div>
-                        <div class="weather-condition-ico-in-this-day"></div>
+                        <div class="add-weather__temperature_in_this_day"></div>
+                        <div class="add-weather__weather-condition-ico-in-this-day"></div>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="map-container">
             <div class="map" id="map"></div>
             <div class="coordinates">
-                <div class="coordinates_lat"></div>
-                <div class="coordinates_lng"></div>
+                <div class="coordinates__lat"></div>
+                <div class="coordinates__lng"></div>
             </div>
         </div>
 

@@ -18,6 +18,8 @@ export default function timeDrawing(data) {
     dateDomElement.innerHTML = `${cutrrentDay}/${cutrrentMonth + 1}/${cutrrentYear}`
 
     /*
+    TODO: translate day/week/month/ into other languages
+
         const monthsEN = [`January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November`, `December`];
         const monthsRU = [`январь`, `февраль`, `март`, `апрель`, `май`, `июнь`, `июль`, `август`, `сентябрь`, `октябрь`, `ноябрь`, `декабрь`];
         const monthsUK = [`Січень`, `Лютий`, `Березень`, `Квітень`, `Травень`, `Червень`, `Липень`, `Серпень`, `Вересень`, `Жовтень`, `Листопад`, `Грудень`];
