@@ -84,6 +84,6 @@ export async function setBackgroundImage() {
     
     */
 
-    const cover = document.querySelector(`.cover`);
-    cover.style.backgroundImage = `url(${data.urls.small})`;
+    const backgroundContainer = document.querySelector(`.background-container`);
+    backgroundContainer.style.backgroundImage = `url(${data.urls.small})`;
 }

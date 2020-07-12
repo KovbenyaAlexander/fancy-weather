@@ -29,16 +29,23 @@
     font-size: 35px;
 }
 
+.background-container{
+    position: fixed;
+    top: 0px;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
 .cover{
-    position: absolute;
+    position: fixed;
+    top: 0px;
+    background: contain;
     z-index: -1;
     width: 100%;
     height: 100%;
-    min-height: 750px;
     background: rgba(0, 0, 0, 0.75);
-
-    background-size: cover;
-    //background-h: 1500px;
 }
 
 .header{
@@ -106,7 +113,7 @@ button:hover{
 }
 
 .weather__today{
-    height: 350px;
+    height: 400px;
 }
 
 .weather__next-days{
@@ -115,7 +122,7 @@ button:hover{
     grid-column: 1/3;
 }
 .weather__add-days{
-    height: 160px;
+    height: 200px;
     margin: 2%;
     padding: 1%;
     border: 2px solid white;
@@ -141,6 +148,7 @@ button:hover{
 .weather-container{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding-top: 20px;
 }
 
 .search-form__input{
@@ -191,16 +199,20 @@ button:hover{
         width: 90%;
         margin: 0 auto;
     }
-
     
-    .cover{
+    .background-container{
         position: fixed;
         top: 0px;
         //background-size: 100%;
         height: 100%;
     }
 
-    
+    .cover{
+        position: fixed;
+        top: 0px;
+        //background-size: 100%;
+        height: 100%;
+    }
 
     .buttons-panel{
         margin: 0 auto;
@@ -210,25 +222,71 @@ button:hover{
         margin: 0 auto;
     }
 
+    .coordinates{
+        text-align: center;
+    }
+
+    .search-form__input{
+        width: 306px;
+    }
+    
 }
 
 
 
-@media (max-width: 550px) {
+@media (max-width: 650px) {
+
+    .main{
+        width: 90%;
+    }
+
+    .header{
+        width: 90%;
+    }
     .weather__next-days{
         display: grid;
         grid-template-columns: 1fr;
     }
 
-    .cover{
-
+    .background-container{
         position: fixed;
         top: 0px;
-        //background-size: 100%;
         height: 100%;
         background: contain;
-        
     }
+
+    .cover{
+        position: fixed;
+        top: 0px;
+        height: 100%;
+        background: contain;
+    }
+
+    .map-container{
+        padding: 0px;
+    }
+
+    .temperature_in_this_day{   
+        text-align: center;
+    }
+
+    .temperature_in_this_day{
+        padding-top: 0px;
+    }
+
+    .weather__add-days {
+        height: 160px;
+    }
+
+    .map{
+        width: 95%;
+        /*height: 300px;
+        border-radius: 20px;
+        border: 2px solid rgb(255, 255, 255);
+        overflow: hidden;
+        margin: 2%;*/
+    }
+
 }
 
 
