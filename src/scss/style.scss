@@ -13,41 +13,6 @@
     color: white;
 }
 
-.weather__location, .eather__town, .weather__country, .weather__time, .weather__date, .weather__curent-condition, .weather__humidity, .weather__temperature, .weather__wind-speed{
-    text-align: center;
-}
-
-.weather__location{
-    font-size: 25px;
-}
-
-.weather__time, .weather__date{
-    font-size: 20px;
-}
-
-.weather__current-text, .weather__temperature{
-    font-size: 35px;
-}
-
-.background-container{
-    position: fixed;
-    top: 0px;
-    z-index: -2;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-}
-
-.cover{
-    position: fixed;
-    top: 0px;
-    background: contain;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.75);
-}
-
 .header{
     width: 1100px;
     margin: 0 auto;
@@ -64,6 +29,25 @@
     justify-content: space-between;
 }
 
+.cover{
+    position: fixed;
+    top: 0px;
+    background: contain;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+.background-container{
+    position: fixed;
+    top: 0px;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
 .button{
     height: 50px;
     width: 50px;
@@ -74,26 +58,6 @@
     font-size: 20px;
     cursor: pointer;
     outline: none;
-}
-
-.search-button{
-    width: 100px;
-}
-
-button:hover{
-    background-color: rgb(194, 194, 194);
-}
-
-.buttons-panel__refresh{
-    width: 100px;
-    margin-right: 20px;
-}
-.buttons-panel__switchTemperatureToF{
-    margin-left: 20px;
-}
-
-.active{
-    background-color: rgba(119, 119, 119, 0.671);;
 }
 
 .map{
@@ -110,6 +74,43 @@ button:hover{
     grid-template-columns: 8fr 1fr;
     width: 100%;
     height: 50%;
+}
+
+.search-button{
+    width: 100px;
+}
+
+button:hover{
+    background-color: rgb(194, 194, 194);
+}
+
+.buttons-panel__refresh{
+    width: 100px;
+    margin-right: 20px;
+}
+
+.buttons-panel__switchTemperatureToF{
+    margin-left: 20px;
+}
+
+.active{
+    background-color: rgba(119, 119, 119, 0.671);;
+}
+
+.weather__location, .eather__town, .weather__country, .weather__time, .weather__date, .weather__curent-condition, .weather__humidity, .weather__temperature, .weather__wind-speed{
+    text-align: center;
+}
+
+.weather__location{
+    font-size: 25px;
+}
+
+.weather__time, .weather__date{
+    font-size: 20px;
+}
+
+.weather__current-text, .weather__temperature{
+    font-size: 35px;
 }
 
 .weather__today{
@@ -138,6 +139,7 @@ button:hover{
 
 .add-weather__weather-condition-in-this-day{
     height: 33px;
+    text-align: center;
 }
 
 .add-weather__temperature_in_this_day{
@@ -203,14 +205,12 @@ button:hover{
     .background-container{
         position: fixed;
         top: 0px;
-        //background-size: 100%;
         height: 100%;
     }
 
     .cover{
         position: fixed;
         top: 0px;
-        //background-size: 100%;
         height: 100%;
     }
 
@@ -275,6 +275,10 @@ button:hover{
 
     .map{
         width: 95%;
+    }
+
+    .add-weather__weather-condition-in-this-day{
+        font-size: 20px;
     }
 
 }
