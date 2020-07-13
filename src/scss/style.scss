@@ -285,3 +285,37 @@ button:hover{
 
 
 
+
+
+@media (max-width: 465px) {
+
+    .button{
+        width: 35px;
+        height: 35px;
+        //padding: 0px;
+        //margin: 0px;
+    }
+
+    .buttons-panel__refresh{
+        width: 80px;
+        margin-right: 0px;
+    }
+
+    .buttons-panel__switchTemperatureToF{
+        margin-left: 0px;
+    }
+
+    .search-form__input{
+        width: 65%;
+    }
+
+    .search-button{
+        width: 30%;
+        height: 54px;
+    }
+
+    .weather__today {
+        height: 450px;
+    }
+
+}
