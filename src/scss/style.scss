@@ -76,6 +76,9 @@
     height: 50%;
 }
 
+
+////////////-------------------------------------------------
+
 .search-button{
     width: 100px;
 }
@@ -110,7 +113,7 @@ button:hover{
 }
 
 .weather__current-text, .weather__temperature{
-    font-size: 35px;
+    font-size: 30px;
 }
 
 .weather__today{
@@ -122,6 +125,8 @@ button:hover{
     grid-template-columns: 1fr 1fr 1fr;
     grid-column: 1/3;
 }
+
+
 .add-weather__cell{
     height: 200px;
     margin: 2%;
@@ -170,7 +175,6 @@ button:hover{
     padding-top: 86px;
     padding-right: 67px;
 }
-
 
 @media (max-width: 1130px) {
     .main{
@@ -280,42 +284,48 @@ button:hover{
     .add-weather__weather-condition-in-this-day{
         font-size: 20px;
     }
+    
+    .weather__current-text, .weather__temperature {
+        font-size: 20px;
+    }
 
 }
 
 
+@media (max-width: 480px) {
 
-
-
-@media (max-width: 465px) {
-
-    .button{
-        width: 35px;
-        height: 35px;
-        //padding: 0px;
-        //margin: 0px;
+    .header{
+        margin: 0 auto;
     }
 
-    .buttons-panel__refresh{
-        width: 80px;
-        margin-right: 0px;
+    .search-button{
+        height: 54px;
+    }
+
+    .buttons-panel{
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+    }
+
+    .search-form__input {
+        width: 70%;
     }
 
     .buttons-panel__switchTemperatureToF{
         margin-left: 0px;
     }
 
-    .search-form__input{
-        width: 65%;
+    .buttons-panel__refresh{
+        margin-right: 0px;
     }
 
-    .search-button{
-        width: 30%;
-        height: 54px;
-    }
-
-    .weather__today {
-        height: 450px;
+    .search-form{
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
     }
 
 }
