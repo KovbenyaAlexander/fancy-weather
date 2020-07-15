@@ -92,8 +92,11 @@ button:hover {
 .weather__time, .weather__date {
   font-size: 20px; }
 
-.weather__current-text, .weather__temperature {
-  font-size: 35px; }
+.weather__current-text {
+  font-size: 25px; }
+
+.weather__temperature {
+  font-size: 30px; }
 
 .weather__today {
   height: 400px; }
@@ -209,7 +212,46 @@ button:hover {
   .map {
     width: 95%; }
   .add-weather__weather-condition-in-this-day {
+    font-size: 20px; }
+  .weather__current-text, .weather__temperature {
     font-size: 20px; } }
+
+@media (max-width: 480px) {
+  .main {
+    width: 100%; }
+  .header {
+    margin: 0 auto; }
+  .button {
+    width: 25%; }
+  .search-form__input {
+    width: 60%; }
+  .search-button {
+    height: 54px;
+    width: 40%; }
+  .buttons-panel {
+    width: 100%; }
+  .weather__ico {
+    display: inline;
+    margin: 0 auto;
+    padding: 0px;
+    padding: 0 auto; }
+  .weather__today {
+    max-height: 300px; }
+  .buttons-panel {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: 90%; }
+  .buttons-panel__switchTemperatureToF {
+    margin-left: 0px; }
+  .buttons-panel__refresh {
+    margin-right: 0px;
+    display: none; }
+  .search-form {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    width: 90%; } }
 
 
 /*# sourceMappingURL=style.css.map*/
