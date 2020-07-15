@@ -76,9 +76,6 @@
     height: 50%;
 }
 
-
-////////////-------------------------------------------------
-
 .search-button{
     width: 100px;
 }
@@ -112,7 +109,11 @@ button:hover{
     font-size: 20px;
 }
 
-.weather__current-text, .weather__temperature{
+.weather__current-text{
+    font-size: 25px;
+}
+
+.weather__temperature{
     font-size: 30px;
 }
 
@@ -294,12 +295,39 @@ button:hover{
 
 @media (max-width: 480px) {
 
+    .main{
+        width: 100%;
+    }
     .header{
         margin: 0 auto;
     }
 
+    .button{
+        width: 25%;
+    }
+
+    .search-form__input {
+        width: 60%;
+    }
+
     .search-button{
         height: 54px;
+        width: 40%;
+    }
+
+    .buttons-panel {
+        width: 100%;
+    }
+
+    .weather__ico{
+        display: inline;
+        margin: 0 auto;
+        padding: 0px;
+        padding: 0 auto;
+    }
+
+    .weather__today{
+        max-height: 300px;
     }
 
     .buttons-panel{
@@ -309,16 +337,13 @@ button:hover{
         width: 90%;
     }
 
-    .search-form__input {
-        width: 70%;
-    }
-
     .buttons-panel__switchTemperatureToF{
         margin-left: 0px;
     }
 
     .buttons-panel__refresh{
         margin-right: 0px;
+        display: none;
     }
 
     .search-form{
@@ -327,5 +352,4 @@ button:hover{
         justify-content: space-between;
         width: 90%;
     }
-
 }
