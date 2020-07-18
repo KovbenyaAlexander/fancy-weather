@@ -4,8 +4,8 @@ import weatherDrawing from './dataDrawing';
 import { getFromStorage, setToStorage } from './storage'
 import { switchTemperature } from './switchTemperature'
 
-
 setBackgroundImage();
+
 
 if (!getFromStorage(`languageForSearch`)) {
     setToStorage(`languageForSearch`, `en`);
